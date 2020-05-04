@@ -18,5 +18,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Archivos de recursos</Filter>
     </ClCompile>
+    <ClCompile Include="high_score_library.cpp">
+      <Filter>Archivos de recursos</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Libreria Aquistapace\HighScoreLibrary_1.0_win32\include\high_score_library.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\Libreria Aquistapace\HighScoreLibrary_1.0_win32\Debug\highScoreLibrary.lib">
+      <Filter>Archivos de origen</Filter>
+    </Library>
   </ItemGroup>
 </Project>

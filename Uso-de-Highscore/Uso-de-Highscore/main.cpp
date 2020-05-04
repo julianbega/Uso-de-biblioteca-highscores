@@ -1,5 +1,7 @@
 #include <GL/glut.h>
+#include <high_score_library.h>
 
+using namespace score;
 
 void Display() 
 {
@@ -8,6 +10,8 @@ void Display()
 
 void main(int argc, char** argv)
 {
+	AddNewScore(Scores _highScore[_sizeList], string namePlayer, int new_score);
+
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
 	glutInitWindowSize(480, 360);
