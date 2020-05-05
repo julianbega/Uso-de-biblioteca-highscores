@@ -21,8 +21,8 @@ namespace scoreNamespace
 	void Clear(Scores *_highScore);							// Limpia todas las posiciones del array
 	void AddNewScore(Scores *_highScore, int _sizeList, string namePlayer, int new_score);		// Añade un nuevo valor a la tabla, eliminando al numero menor (si tiene)
 	void ShowHighScore(Scores _highScore, int _sizeList);					// Muestra toda la tabla por pantalla
-	int ShowScore(Scores _highScore, int _sizeList);
-	string ShowPlayer(Scores _highScore, int _sizeList);
+	int ShowScore(Scores _highScore, int pos);
+	string ShowPlayer(Scores _highScore, int pos);
 }
 
 #endif // !HIGH_SCORE_H

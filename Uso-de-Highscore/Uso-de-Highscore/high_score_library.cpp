@@ -151,15 +151,15 @@ namespace scoreNamespace
 		}
 	}
 
-	int ShowScore(Scores _highScore, int _sizeList)
+	int ShowScore(Scores _highScore, int pos)
 	{
-		int selectedScore = _highScore.score[_sizeList];
+		int selectedScore = _highScore.score[pos];
 
 		return selectedScore;
 	}
-	string ShowPlayer(Scores _highScore, int _sizeList)
+	string ShowPlayer(Scores _highScore, int pos)
 	{
-		string name = _highScore.name[_sizeList];
+		string name = _highScore.name[pos];
 		return name;
 	}
 }
