@@ -1,4 +1,5 @@
 #include <GL/glut.h>
+#include <GL/freeglut.h>
 #include <high_score_library.h>
 #include<iostream>
 #include <string.h>
@@ -15,7 +16,7 @@ void Display()
 void main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
+	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
 	glutInitWindowSize(480, 360);
 	glutInitWindowPosition(50, 50);
 	glutCreateWindow("Highscore");
@@ -36,40 +37,33 @@ void main(int argc, char** argv)
 	AddNewScore(&_highScore, _sizeList, "Lucio", 120);
 	ShowHighScore(_highScore, _sizeList);
 
-		
-	string palabra = ShowPlayer(_highScore, 0) + "    " + to_string(ShowScore(_highScore, 0));//ShowScore(_highScore, 0);
-	string palabra1 = ShowPlayer(_highScore, 1);
-
+	string palabra = "HIGHSCORE \n";
+	for (int i = 0; i < _sizeList; i++)
+	{
+		palabra = palabra + ShowPlayer(_highScore, i) + "    " + to_string(ShowScore(_highScore, i)) + "\n";
+	}
+	
+	
 	int len = palabra.size();
-	int len1 = palabra1.size();
+	
 	char *texto = new char[len + 1];
-	char *texto1 = new char[len1 + 1];
+	
 	std::copy(palabra.begin(), palabra.end(), texto);
-	std::copy(palabra1.begin(), palabra1.end(), texto1);
+	
 	texto[len] = '\0'; 
-	texto1[len1] = '\0';
+	
 	int w;
-	int w1;
+	
 	w = glutBitmapLength(GLUT_BITMAP_8_BY_13, (unsigned char*)texto);
-	w1 = glutBitmapLength(GLUT_BITMAP_8_BY_13, (unsigned char*)texto1);
+	
 
-	glRasterPos2i(0, 0);
+	
 
+	glRasterPos2f(-0.9, 0.9);
 	glColor3b(1., 0., 0.);
-
-	int plen = strlen(texto);
-	for (int i = 0; i < plen; i++) {
-		glutBitmapCharacter(GLUT_BITMAP_8_BY_13, texto[i]);
-	}
-	glFlush();
-
-	glRasterPos2i(0, 1);
-
-	glColor3b(1., 0., 0.);
-	int plen1 = strlen(texto1);
-	for (int i = 0; i < plen1; i++) {
-		glutBitmapCharacter(GLUT_BITMAP_8_BY_13, texto1[i]);
-	}
+	glutBitmapString(GLUT_BITMAP_HELVETICA_18, (unsigned char*)texto);
+	glFinish();
+	
 
 	glutMainLoop();
 }
