@@ -6,12 +6,12 @@ namespace scoreNamespace
 	{
 		for (int i = 0; i < _sizeList; i++)
 		{
-			_highScore->name[i] = " Sergio ";
-			_highScore->score[i] = 99999;
+			_highScore->name[i] = "default";
+			_highScore->score[i] = 1;
 		}
 	}
 
-	void AddNewScore(Scores _highScore, int _sizeList, string namePlayer, int new_score)
+	void AddNewScore(Scores *_highScore, int _sizeList, string namePlayer, int new_score)
 	{
 		int aux = 0;
 		int newDat = new_score;
@@ -21,13 +21,13 @@ namespace scoreNamespace
 
 		for (int i = 0; i < _sizeList; i++)
 		{
-			if (newDat >= _highScore.score[i])
+			if (newDat >= _highScore->score[i])
 			{
-				aux = _highScore.score[i];
-				auxString = _highScore.name[i];
+				aux = _highScore->score[i];
+				auxString = _highScore->name[i];
 
-				_highScore.score[i] = newDat;
-				_highScore.name[i] = newName;
+				_highScore->score[i] = newDat;
+				_highScore->name[i] = newName;
 
 				newDat = aux;
 				newName = auxString;
