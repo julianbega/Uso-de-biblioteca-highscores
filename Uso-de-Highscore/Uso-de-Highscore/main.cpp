@@ -1,7 +1,11 @@
 #include <GL/glut.h>
 #include <high_score_library.h>
+#include<iostream>
+#include <string.h>
+#include <string>
 
-using namespace score;
+using namespace scoreNamespace;
+using namespace std;
 
 void Display() 
 {
@@ -10,19 +14,24 @@ void Display()
 
 void main(int argc, char** argv)
 {
-	Scores* _highScore[_sizeList];
+	Scores _highScore[_sizeList];
 	string namePlayer;
 	int new_score;
-	AddNewScore(_highScore[0], "Juli", 100);
-	AddNewScore(_highScore[1], "Tomi", 200);
-	AddNewScore(_highScore[2], "Elias", 300);
-	AddNewScore(_highScore[3], "Simon", 80);
-	AddNewScore(_highScore[4], "Fermin", 600);
-	AddNewScore(_highScore[5], "Maxi", 400);
-	AddNewScore(_highScore[6], "Juan Crzu", 250);
-	AddNewScore(_highScore[7], "Iker", 220);
-	AddNewScore(_highScore[8], "Lauti", 90);
-	AddNewScore(_highScore[9], "Lucio", 120);
+	for (int i = 0; i < _sizeList; i++)
+	{
+		Clean(_highScore[i], i);
+	}
+	AddNewScore(_highScore[], _sizeList, "Juli", 100);
+	AddNewScore(_highScore[_sizeList], _sizeList, "Tomi", 200);
+	AddNewScore(_highScore[_sizeList], _sizeList, "Elias", 300);
+	AddNewScore(_highScore[_sizeList], _sizeList, "Simon", 80);
+	AddNewScore(_highScore[_sizeList], _sizeList, "Fermin", 600);
+	AddNewScore(_highScore[_sizeList], _sizeList, "Maxi", 400);
+	AddNewScore(_highScore[_sizeList], _sizeList, "Juan Crzu", 250);
+	AddNewScore(_highScore[_sizeList], _sizeList, "Iker", 220);
+	AddNewScore(_highScore[_sizeList], _sizeList, "Lauti", 90);
+	AddNewScore(_highScore[_sizeList], _sizeList, "Lucio", 120);
+	ShowHighScore(_highScore[_sizeList], _sizeList);
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
 	glutInitWindowSize(480, 360);

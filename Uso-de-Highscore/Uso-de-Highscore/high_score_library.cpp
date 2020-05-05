@@ -1,17 +1,15 @@
 #include "high_score_library.h"
 
-namespace score
+namespace scoreNamespace
 {
-	void Clean(Scores _highScore[_sizeList])
+	void Clean(Scores _highScore[], int _pos)
 	{
-		for (int i = 0; i < _sizeList; i++)
-		{
-			_highScore[i].name = " ";
-			_highScore[i].score = 0;
-		}
+			_highScore[_pos].name = " ";
+			_highScore[_pos].score = 0;
+		
 	}
 
-	void AddNewScore(Scores _highScore[_sizeList], string namePlayer, int new_score)
+	void AddNewScore(Scores _highScore, int _sizeList, string namePlayer, int new_score)
 	{
 		int aux = 0;
 		int newDat = new_score;
@@ -143,11 +141,23 @@ namespace score
 		}
 	}
 
-	void ShowHighScore(Scores highScore[_sizeList])
+	void ShowHighScore(Scores _highScore, int _sizeList)
 	{
 		for (int i = 0; i < _sizeList; i++)
 		{
 			cout << " " << i + 1 << " "<< highScore[i].name << " -- " << highScore[i].score << "\n"<< endl;
 		}
+	}
+
+	int ShowScore(Scores _highScore, int _sizeList)
+	{
+		int selectedScore = _highScore[_sizeList].score;
+
+		return selectedScore;
+	}
+	string ShowPlayer(Scores _highScore, int _sizeList)
+	{
+		string name = _highScore[_sizeList].name;
+		return name;
 	}
 }
